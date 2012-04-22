@@ -71,11 +71,14 @@ autocmd BufNewFile,BufRead Gemfile set filetype=ruby
 au   BufEnter *   execute ":lcd " . expand("%:p:h")
 
 " disable arrows navigation in insert mode
-inoremap <Left>  <NOP>
-inoremap <Right> <NOP>
-inoremap <Up>    <NOP>
-inoremap <Down>  <NOP>
+map <Left>  <NOP>
+map <Right> <NOP>
+map <Up>    <NOP>
+map <Down>  <NOP>
 
 " highlight current line
 set cursorline
 hi CursorLine term=none cterm=none
+
+" Clear the search buffer when hitting return
+:nnoremap <CR> :nohlsearch<cr>
