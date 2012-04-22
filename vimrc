@@ -75,3 +75,7 @@ inoremap <Left>  <NOP>
 inoremap <Right> <NOP>
 inoremap <Up>    <NOP>
 inoremap <Down>  <NOP>
+
+" highlight current line
+set cursorline
+hi CursorLine term=none cterm=none
