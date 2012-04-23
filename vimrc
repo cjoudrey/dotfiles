@@ -38,7 +38,6 @@ set smartcase     " ignore case if search pattern is all lowercase,
                   "    case-sensitive otherwise
 set smarttab      " insert tabs on the start of a line according to
                   "    shiftwidth, not tabstop
-set hlsearch      " highlight search terms
 set incsearch     " show search matches as you type
 
 set history=1000         " remember more commands and search history
@@ -79,6 +78,10 @@ map <Down>  <NOP>
 " highlight current line
 set cursorline
 hi CursorLine term=none cterm=none
+
+" highlight search terms
+set hlsearch
+hi Search guifg=NONE guibg=NONE gui=underline ctermfg=NONE ctermbg=NONE cterm=underline
 
 " Clear the search buffer when hitting return
 :nnoremap <CR> :nohlsearch<cr>
