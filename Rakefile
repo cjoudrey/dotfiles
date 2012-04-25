@@ -3,8 +3,15 @@ task :install => [:update_submodules] do
   target = File.expand_path("~")
   File.read('Manifest').each_line do |file|
     file = file.chomp
+    target_file = "#{target}/.#{file}"
+
+    if File.exists?(target_file)
+      print "Skipping #{file} - #{target_file} exists\n"
+      next
+    end
+
     print "Installing #{file}\n"
-    File.symlink("#{root}/#{file}", "#{target}/.#{file}")
+    File.symlink("#{root}/#{file}", target_file)
   end
 end
 
