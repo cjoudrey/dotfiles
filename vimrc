@@ -9,6 +9,8 @@ set shiftwidth=2
 set tabstop=2
 set expandtab
 
+autocmd FileType php set tabstop=4|set shiftwidth=4|set noexpandtab
+
 "shift+tab to unindent
 imap <S-Tab> <C-o><<
 
