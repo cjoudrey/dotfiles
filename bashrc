@@ -8,7 +8,7 @@ if [ -f ~/.git-completion.sh ]; then
     PS1=$PS1'$(__git_ps1 " (%s)")'
 fi
 
-PS1=$PS1" \W$"
+PS1=$PS1" \W$ "
 
 export PS1
 
