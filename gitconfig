@@ -1,0 +1,29 @@
+[user]
+  name = Christian Joudrey
+  email = cmallette@gmail.com
+
+[color]
+  ui = auto
+  interactive = auto
+
+[core]
+  editor = vim
+
+[merge]
+  tool = diffmerge
+
+[mergetool "diffmerge"]
+  cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
+  trustExitCode = false
+
+[alias]
+  st = status
+  co = commit
+  br = branch
+  ch = checkout
+
+[branch]
+  autosetuprebase = always
+
+[include]
+  path = .github
