@@ -15,3 +15,6 @@ export PS1
 # Aliases
 alias ll='ls -Fls'
 alias vi='vim'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias gs='git status'
