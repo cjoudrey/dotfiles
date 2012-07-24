@@ -11,7 +11,6 @@ set expandtab
 
 autocmd FileType php set tabstop=4|set shiftwidth=4|set noexpandtab
 
-"shift+tab to unindent
 imap <S-Tab> <C-o><<
 
 map <D-1> :tabn 1<CR>
@@ -87,3 +86,12 @@ hi Search guifg=NONE guibg=NONE gui=underline ctermfg=NONE ctermbg=NONE cterm=un
 
 " Clear the search buffer when hitting return
 :nnoremap <CR> :nohlsearch<cr>
+
+" auto complete
+imap <Tab> <C-P>
+set complete=.,b,u,]
+set wildmode=longest,list:longest
+set completeopt=menu,preview
+
+set exrc" enable per-directory .vimrc files
+set secure" disable unsafe commands in local .vimrc files
