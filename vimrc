@@ -98,3 +98,31 @@ set completeopt=menu,preview
 
 set exrc" enable per-directory .vimrc files
 set secure" disable unsafe commands in local .vimrc files
+
+" Find project root
+function! FindProjectRoot(lookFor)
+    let pathMaker='%:p'
+    while(len(expand(pathMaker))>1)
+        let pathMaker=pathMaker.':h'
+        let fileToCheck=expand(pathMaker).'/'.a:lookFor
+        if filereadable(fileToCheck)||isdirectory(fileToCheck)
+            return expand(pathMaker)
+        endif
+    endwhile
+    return 0
+endfunction
+
+" Fix to escape from CommandT using <ESC>
+let g:CommandTCancelMap=['<ESC>','<C-c>']
+
+" CommandT custom jumps
+nnoremap <silent> <Leader>gc :CommandT <c-r>=FindProjectRoot('.git') . '/app/controllers'<CR><CR>
+nnoremap <silent> <Leader>gh :CommandT <c-r>=FindProjectRoot('.git') . '/app/helpers'<CR><CR>
+nnoremap <silent> <Leader>gl :CommandT <c-r>=FindProjectRoot('.git') . '/lib'<CR><CR>
+nnoremap <silent> <Leader>gm :CommandT <c-r>=FindProjectRoot('.git') . '/app/models'<CR><CR>
+nnoremap <silent> <Leader>gp :CommandT <c-r>=FindProjectRoot('.git') . '/public'<CR><CR>
+nnoremap <silent> <Leader>gv :CommandT <c-r>=FindProjectRoot('.git') . '/app/views'<CR><CR>
+nnoremap <silent> <Leader>f :CommandTFlush<cr>\|:CommandT <c-r>=FindProjectRoot('.git')<CR><CR>
+
+" Open Gemfile
+nnoremap <silent> <Leader>gg :topleft 100 :split <c-r>=FindProjectRoot('.git') . '/Gemfile'<CR><CR>
