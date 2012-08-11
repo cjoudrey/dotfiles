@@ -4,6 +4,9 @@ filetype off
 syntax on
 filetype plugin indent on
 
+"set leader key to ,
+let mapleader=","
+
 "soft tabs
 set shiftwidth=2
 set tabstop=2
