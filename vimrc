@@ -126,3 +126,7 @@ nnoremap <silent> <Leader>f :CommandTFlush<cr>\|:CommandT <c-r>=FindProjectRoot(
 
 " Open Gemfile
 nnoremap <silent> <Leader>gg :topleft 100 :split <c-r>=FindProjectRoot('.git') . '/Gemfile'<CR><CR>
+
+" Powerline settings
+set laststatus=2
+"let g:Powerline_symbols = 'fancy'
