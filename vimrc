@@ -61,8 +61,18 @@ syntax on
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 
-" Safe paste
-set pastetoggle=<F2>
+" safe paste
+map <Leader>p :set invpaste<CR>i
+
+" disable paste when leaving insert mode
+au InsertLeave * set nopaste
+
+" reselect visual block after indent/outdent
+vnoremap < <gv
+vnoremap > >gv
+
+" resize splits when the window is resized
+au VimResized * exe "normal! \<c-w>="
 
 " disable highlight for html,xml files
 autocmd filetype html,xml set listchars-=tab:>.
