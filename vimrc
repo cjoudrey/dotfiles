@@ -99,7 +99,14 @@ hi Search guifg=NONE guibg=NONE gui=underline ctermfg=NONE ctermbg=NONE cterm=un
 :nnoremap <CR> :nohlsearch<cr>
 
 " auto complete
-imap <Tab> <C-P>
+function! SuperTab()
+    if (strpart(getline('.'),col('.')-2,1)=~'^\W\?$')
+        return "\<Tab>"
+    else
+        return "\<C-P>"
+    endif
+endfunction
+imap <Tab> <C-R>=SuperTab()<CR>
 set complete=.,b,u,]
 set wildmode=longest,list:longest
 set completeopt=menu,preview
