@@ -54,7 +54,7 @@ set noswapfile
 
 " theme
 set t_Co=256
-colorscheme Tomorrow-Night
+colorscheme mustang
 syntax on
 
 " highlight whitespaces
