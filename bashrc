@@ -23,3 +23,6 @@ alias gp='git push'
 
 # sha256sum
 alias sha256sum='shasum -a 256'
+
+#json pretty-print
+alias pp='python -mjson.tool'
