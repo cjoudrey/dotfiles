@@ -77,6 +77,7 @@ au VimResized * exe "normal! \<c-w>="
 " disable highlight for html,xml files
 autocmd filetype html,xml set listchars-=tab:>.
 autocmd BufNewFile,BufRead Gemfile set filetype=ruby
+autocmd BufNewFile,BufRead Guardfile set filetype=ruby
 
 " automatically cd to current buff dir
 au   BufEnter *   execute ":lcd " . expand("%:p:h")
