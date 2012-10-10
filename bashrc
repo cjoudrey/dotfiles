@@ -1,3 +1,7 @@
+# Set vim as default editor
+EDITOR=vim
+export EDITOR
+
 # Set the base PS1
 PS1="\u"
 
