@@ -5,3 +5,4 @@ vim
 caprc
 gitconfig
 gemrc
+git-completion.sh
