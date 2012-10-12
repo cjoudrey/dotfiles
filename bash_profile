@@ -1,2 +1,2 @@
-if [ -f ~/.bashrc ]; then source ~/.bashrc ; fi 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
+# Load bashrc (if available)
+[[ -s "$HOME/.bashrc" ]] && . "$HOME/.bashrc"

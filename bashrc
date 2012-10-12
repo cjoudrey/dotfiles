@@ -1,3 +1,9 @@
+# Load rvm (if installed)
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
+# Load rbenv (if installed)
+[[ -s "$HOME/.rbenv" ]] && eval "$(rbenv init -)"
+
 # Set vim as default editor
 EDITOR=vim
 export EDITOR
