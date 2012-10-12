@@ -8,17 +8,17 @@
 export EDITOR="vim"
 
 # Set the base PS1
-PS1="\u"
+PS1="\[\033[1;30m\]\w\[\033[00m\]"
 
 # Source the git bash completion file
 if [ -f ~/.git-completion.sh ]; then
     source ~/.git-completion.sh
     GIT_PS1_SHOWDIRTYSTATE=true
-    PS1=$PS1'$(__git_ps1 " (%s)")'
+    PS1=$PS1'\[\033[32m\]$(__git_ps1 " (%s)")\[\033[00m\]'
 fi
 
-PS1=$PS1" \W$ "
-
+# Set prompt
+PS1=$PS1" $ "
 export PS1
 
 # Aliases
