@@ -45,3 +45,7 @@ export RUBY_HEAP_FREE_MIN=500000
 
 # Add MySQL to path
 export PATH="/usr/local/mysql/bin/:$PATH"
+
+# Colorize grep by default
+export GREP_OPTIONS="--color=auto"
+export GREP_COLOR="1;37;41"
