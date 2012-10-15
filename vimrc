@@ -12,8 +12,6 @@ set shiftwidth=2
 set tabstop=2
 set expandtab
 
-autocmd FileType php set tabstop=4|set shiftwidth=4|set noexpandtab
-
 map <Leader>1 :tabn 1<CR>
 map <Leader>2 :tabn 2<CR>
 map <Leader>3 :tabn 3<CR>
