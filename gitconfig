@@ -10,7 +10,7 @@
 	editor = /usr/bin/vim
 
 [merge]
-  tool = diffmerge
+  tool = vimdiff
 
 [mergetool "diffmerge"]
   cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
