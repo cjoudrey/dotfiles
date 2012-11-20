@@ -27,3 +27,5 @@
 
 [include]
   path = .github
+[push]
+	default = current
