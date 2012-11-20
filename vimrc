@@ -77,6 +77,9 @@ autocmd filetype html,xml set listchars-=tab:>.
 autocmd BufNewFile,BufRead Gemfile set filetype=ruby
 autocmd BufNewFile,BufRead Guardfile set filetype=ruby
 
+" Two-space indentation for CoffeeScript files
+au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+
 " automatically cd to current buff dir
 au   BufEnter *   execute ":lcd " . expand("%:p:h")
 
