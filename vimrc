@@ -159,6 +159,12 @@ function! GoodMatch(items, str, limit, mmode, ispath, crfile, regex)
   return split(system(cmd), "\n")
 endfunction
 
+" Fix write typos
+command W w
+command Q q
+command Wq wq
+command WQ wq
+
 " Powerline settings
 set laststatus=2
 "let g:Powerline_symbols = 'fancy'
