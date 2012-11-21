@@ -133,13 +133,39 @@ endfunction
 let g:CommandTCancelMap=['<ESC>','<C-c>']
 
 " CommandT custom jumps
-nnoremap <silent> <Leader>gc :CommandT <c-r>=FindProjectRoot('.git') . '/app/controllers'<CR><CR>
-nnoremap <silent> <Leader>gh :CommandT <c-r>=FindProjectRoot('.git') . '/app/helpers'<CR><CR>
-nnoremap <silent> <Leader>gl :CommandT <c-r>=FindProjectRoot('.git') . '/lib'<CR><CR>
-nnoremap <silent> <Leader>gm :CommandT <c-r>=FindProjectRoot('.git') . '/app/models'<CR><CR>
-nnoremap <silent> <Leader>gp :CommandT <c-r>=FindProjectRoot('.git') . '/public'<CR><CR>
-nnoremap <silent> <Leader>gv :CommandT <c-r>=FindProjectRoot('.git') . '/app/views'<CR><CR>
-nnoremap <silent> <Leader>f :CommandTFlush<cr>\|:CommandT <c-r>=FindProjectRoot('.git')<CR><CR>
+nnoremap <silent> <Leader>gc :CtrlP <c-r>=FindProjectRoot('.git') . '/app/controllers'<CR><CR>
+nnoremap <silent> <Leader>gh :CtrlP <c-r>=FindProjectRoot('.git') . '/app/helpers'<CR><CR>
+nnoremap <silent> <Leader>gl :CtrlP <c-r>=FindProjectRoot('.git') . '/lib'<CR><CR>
+nnoremap <silent> <Leader>gm :CtrlP <c-r>=FindProjectRoot('.git') . '/app/models'<CR><CR>
+nnoremap <silent> <Leader>gv :CtrlP <c-r>=FindProjectRoot('.git') . '/app/views'<CR><CR>
+nnoremap <silent> <Leader>gt :CtrlP <c-r>=FindProjectRoot('.git') . '/test'<CR><CR>
+nnoremap <silent> <Leader>t :CtrlP <c-r>=FindProjectRoot('.git')<CR><CR>
+
+" CtrlP + Matcher
+let g:path_to_matcher = "/usr/local/bin/matcher"
+let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files . -co --exclude-standard']
+let g:ctrlp_match_func = { 'match': 'GoodMatch' }
+
+function! GoodMatch(items, str, limit, mmode, ispath, crfile, regex)
+  " Create a cache file if not yet exists
+  let cachefile = ctrlp#utils#cachedir().'/matcher.cache'
+  if !( filereadable(cachefile) && a:items == readfile(cachefile) )
+    call writefile(a:items, cachefile)
+  endif
+  if !filereadable(cachefile)
+    return []
+  endif
+
+  " a:mmode is currently ignored. In the future, we should probably do
+  " something about that. the matcher behaves like "full-line".
+  let cmd = g:path_to_matcher.' --limit '.a:limit.' --manifest '.cachefile.' '
+  if !( exists('g:ctrlp_dotfiles') && g:ctrlp_dotfiles )
+    let cmd = cmd.'--no-dotfiles '
+  endif
+  let cmd = cmd.a:str
+
+  return split(system(cmd), "\n")
+endfunction
 
 " Open Gemfile
 nnoremap <silent> <Leader>gg :topleft 100 :split <c-r>=FindProjectRoot('.git') . '/Gemfile'<CR><CR>
