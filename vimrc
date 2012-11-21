@@ -113,6 +113,7 @@ set complete=.,b,u,]
 set wildmode=longest,list:longest
 set completeopt=menu,preview
 
+" Per-project vimrc
 set exrc" enable per-directory .vimrc files
 set secure" disable unsafe commands in local .vimrc files
 
@@ -129,16 +130,7 @@ function! FindProjectRoot(lookFor)
     return 0
 endfunction
 
-" Fix to escape from CommandT using <ESC>
-let g:CommandTCancelMap=['<ESC>','<C-c>']
-
-" CommandT custom jumps
-nnoremap <silent> <Leader>gc :CtrlP <c-r>=FindProjectRoot('.git') . '/app/controllers'<CR><CR>
-nnoremap <silent> <Leader>gh :CtrlP <c-r>=FindProjectRoot('.git') . '/app/helpers'<CR><CR>
-nnoremap <silent> <Leader>gl :CtrlP <c-r>=FindProjectRoot('.git') . '/lib'<CR><CR>
-nnoremap <silent> <Leader>gm :CtrlP <c-r>=FindProjectRoot('.git') . '/app/models'<CR><CR>
-nnoremap <silent> <Leader>gv :CtrlP <c-r>=FindProjectRoot('.git') . '/app/views'<CR><CR>
-nnoremap <silent> <Leader>gt :CtrlP <c-r>=FindProjectRoot('.git') . '/test'<CR><CR>
+" CtrlP
 nnoremap <silent> <Leader>t :CtrlP <c-r>=FindProjectRoot('.git')<CR><CR>
 
 " CtrlP + Matcher
@@ -166,9 +158,6 @@ function! GoodMatch(items, str, limit, mmode, ispath, crfile, regex)
 
   return split(system(cmd), "\n")
 endfunction
-
-" Open Gemfile
-nnoremap <silent> <Leader>gg :topleft 100 :split <c-r>=FindProjectRoot('.git') . '/Gemfile'<CR><CR>
 
 " Powerline settings
 set laststatus=2
