@@ -14,6 +14,7 @@ PS1="\[\033[1;30m\]\w\[\033[00m\]"
 if [ -f ~/.git-completion.sh ]; then
     source ~/.git-completion.sh
     GIT_PS1_SHOWDIRTYSTATE=true
+    GIT_PS1_SHOWUNTRACKEDFILES=true
     PS1=$PS1'\[\033[32m\]$(__git_ps1 " (%s)")\[\033[00m\]'
 fi
 
