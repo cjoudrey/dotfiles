@@ -30,6 +30,7 @@ alias gdc='git diff --cached'
 alias gs='git status'
 alias ga='git add'
 alias gp='git push'
+alias be='bundle exec'
 
 # sha256sum
 alias sha256sum='shasum -a 256'
