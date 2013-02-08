@@ -74,8 +74,7 @@ au VimResized * exe "normal! \<c-w>="
 
 " disable highlight for html,xml files
 autocmd filetype html,xml set listchars-=tab:>.
-autocmd BufNewFile,BufRead Gemfile set filetype=ruby
-autocmd BufNewFile,BufRead Guardfile set filetype=ruby
+autocmd BufNewFile,BufRead Gemfile,Vagrantfile,Guardfile set filetype=ruby
 
 " properly highlight .coffee.erb files
 autocmd BufNewFile,BufRead *.coffee.erb set filetype=coffee
