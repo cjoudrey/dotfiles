@@ -168,4 +168,4 @@ command WQ wq
 
 " Powerline settings
 set laststatus=2
-"let g:Powerline_symbols = 'fancy'
+let g:Powerline_symbols = 'fancy'
