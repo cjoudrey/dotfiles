@@ -21,7 +21,7 @@ map <Leader>6 :tabn 6<CR>
 map <Leader>7 :tabn 7<CR>
 map <Leader>8 :tabn 8<CR>
 map <Leader>9 :tabn 9<CR>
-map <Leader>0 :tabnew<CR>
+map <Leader>0 :tab split<CR>
 
 "set hidden        " hide buffers instead of closing them
 
@@ -169,3 +169,10 @@ command WQ wq
 " Powerline settings
 set laststatus=2
 let g:Powerline_symbols = 'fancy'
+
+" Rubytest
+let g:rubytest_cmd_test = "bundle exec rake test TEST=%:p:h/%p"
+let g:rubytest_cmd_testcase = 'bundle exec rake test TEST=%:p:h/%p TESTOPTS="--name=%c"'
+map <unique> <Leader>L <Plug>RubyTestRun
+map <unique> <Leader>l <Plug>RubyFileRun
+map <unique> <Leader>. <Plug>RubyTestRunLast
