@@ -72,6 +72,10 @@ vnoremap > >gv
 " resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
 
+" default splits to right and bottom
+set splitbelow
+set splitright
+
 " disable highlight for html,xml files
 autocmd filetype html,xml set listchars-=tab:>.
 autocmd BufNewFile,BufRead Gemfile,Vagrantfile,Guardfile set filetype=ruby
