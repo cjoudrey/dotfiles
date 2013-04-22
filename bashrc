@@ -7,6 +7,9 @@
 # Set vim as default editor
 export EDITOR="vim"
 
+# VI movement in Bash
+set -o vi
+
 # Set the base PS1
 PS1="\[\033[1;30m\]\w\[\033[00m\]"
 
