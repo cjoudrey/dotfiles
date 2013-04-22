@@ -8,6 +8,7 @@
 
 [core]
 	editor = /usr/bin/vim
+ excludesfile = /opt/boxen/config/git/gitignore
 
 [merge]
   tool = vimdiff
@@ -29,3 +30,10 @@
   path = .github
 [push]
 	default = current
+
+[hub]
+protocol = https
+
+
+[credential]
+helper = /opt/boxen/bin/boxen-git-credential
