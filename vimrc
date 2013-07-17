@@ -80,6 +80,10 @@ set splitright
 autocmd filetype html,xml set listchars-=tab:>.
 autocmd BufNewFile,BufRead Gemfile,Vagrantfile,Guardfile set filetype=ruby
 
+" Go lang
+autocmd BufNewFile,BufRead *.go set filetype=go
+autocmd FileType go setl tabstop=4 softtabstop=2 shiftwidth=4 noexpandtab
+
 " properly highlight .coffee.erb files
 autocmd BufNewFile,BufRead *.coffee.erb set filetype=coffee
 " Two-space indentation for CoffeeScript files
