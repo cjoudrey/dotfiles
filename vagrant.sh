@@ -23,6 +23,5 @@ DOTFILES_FOLDER="$PREFIX/dotfiles"
 
 git clone git@github.com:cjoudrey/dotfiles.git $DOTFILES_FOLDER \
   && cd $DOTFILES_FOLDER \
-  && git checkout vagrant \
   && rake install \
   && rm "$PREFIX/.bash_profile" \
