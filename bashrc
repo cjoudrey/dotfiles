@@ -54,3 +54,6 @@ export GREP_COLOR="1;37;41"
 
 # Hub
 if hub --version >/dev/null 2>&1; then eval "$(hub alias -s)"; fi
+
+# Prevent iTerm from closing when hitting Control-D
+export IGNOREEOF=25
