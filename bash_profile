@@ -13,6 +13,3 @@ alias mysqld="sudo /Library/StartupItems/MySQLCOM/MySQLCOM"
 
 # NodeJS
 export PATH="/usr/local/share/npm/bin:$PATH"
-
-# Prevent iTerm from closing when hitting Control-D
-export IGNOREEOF=25
