@@ -14,7 +14,7 @@ HUBDIR="$BINDIR/hub"
 TEMP_HUB_FOLDER=`mktemp -d`
 git clone https://github.com/github/hub.git $TEMP_HUB_FOLDER \
   && cd $TEMP_HUB_FOLDER \
-  && rake install prefix=$BINDIR \
+  && rake install prefix=$PREFIX \
 
 # Setup dotfiles
 DOTFILES_FOLDER="$PREFIX/dotfiles"
