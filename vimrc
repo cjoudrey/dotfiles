@@ -194,3 +194,6 @@ let g:rubytest_cmd_testcase = 'bundle exec rake test TEST=%:p:h/%p TESTOPTS="--n
 map <unique> <Leader>L <Plug>RubyTestRun
 map <unique> <Leader>l <Plug>RubyFileRun
 map <unique> <Leader>. <Plug>RubyTestRunLast
+
+" Ackvim
+noremap <Leader>a :Ack <cword> <c-r>=FindProjectRoot('.git')<CR>
