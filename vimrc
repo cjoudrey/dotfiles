@@ -1,7 +1,17 @@
-"pathogen
-call pathogen#runtime_append_all_bundles()
+"vundle
+set nocompatible
 filetype off
-syntax on
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'mileszs/ack.vim'
+Bundle 'kien/ctrlp.vim'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'tpope/vim-fugitive'
+Bundle 'elzr/vim-json'
+Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Bundle 'janx/vim-rubytest'
+
 filetype plugin indent on
 
 "set leader key to ,
