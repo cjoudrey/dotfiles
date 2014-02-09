@@ -196,4 +196,4 @@ map <unique> <Leader>l <Plug>RubyFileRun
 map <unique> <Leader>. <Plug>RubyTestRunLast
 
 " Ackvim
-noremap <Leader>a :Ack <cword> <c-r>=FindProjectRoot('.git')<CR>
+noremap <Leader>a :Ack <cword> <c-r>=FindProjectRoot('.git').' --'.&filetype<CR>
