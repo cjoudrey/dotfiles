@@ -25,3 +25,6 @@ git clone git@github.com:cjoudrey/dotfiles.git $DOTFILES_FOLDER \
   && cd $DOTFILES_FOLDER \
   && rake install \
   && rm "$PREFIX/.bash_profile" \
+
+# Run vundle
+vim +BundleInstall +qall
