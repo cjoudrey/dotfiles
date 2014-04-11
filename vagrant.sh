@@ -3,6 +3,9 @@ BINDIR="$PREFIX/bin"
 
 mkdir $BINDIR
 
+# Remove default .gitconfig
+rm ~/.gitconfig 2> /dev/null
+
 # Install matcher
 TEMP_MATCHER_FOLDER=`mktemp -d`
 git clone git@github.com:burke/matcher.git $TEMP_MATCHER_FOLDER \
