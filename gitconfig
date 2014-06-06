@@ -7,11 +7,12 @@
   interactive = auto
 
 [core]
-	editor = /usr/bin/vim
- excludesfile = /opt/boxen/config/git/gitignore
+  editor = /usr/bin/vim
+  excludesfile = /opt/boxen/config/git/gitignore
 
 [merge]
   tool = vimdiff
+  conflictstyle = diff3
 
 [mergetool "diffmerge"]
   cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
@@ -28,12 +29,15 @@
 
 [include]
   path = .github
+
 [push]
-	default = current
+  default = current
 
 [hub]
-protocol = https
-
+  protocol = https
 
 [credential]
-helper = /opt/boxen/bin/boxen-git-credential
+  helper = /opt/boxen/bin/boxen-git-credential
+
+[pull]
+  rebase = true
