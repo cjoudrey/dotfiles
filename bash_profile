@@ -1,6 +1,3 @@
-# Boxen
-source /opt/boxen/env.sh
-
 # Load bashrc (if available)
 [[ -s "$HOME/.bashrc" ]] && . "$HOME/.bashrc"
 
