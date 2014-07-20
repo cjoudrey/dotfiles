@@ -1,6 +1,8 @@
 # Load bashrc (if available)
 [[ -s "$HOME/.bashrc" ]] && . "$HOME/.bashrc"
 
+[[ -s "rbenv" ]] && . "$(rbenv init -)"
+
 # Heroku
 export PATH="/usr/local/heroku/bin:$PATH"
 
