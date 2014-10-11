@@ -7,3 +7,4 @@ gitconfig
 gemrc
 ackrc
 git-completion.sh
+tmux.conf

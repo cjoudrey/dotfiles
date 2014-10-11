@@ -41,6 +41,9 @@ alias sha256sum='shasum -a 256'
 # json pretty-print
 alias pp='python -mjson.tool'
 
+# fix colors in tmux
+alias tmux="TERM=screen-256color-bce tmux"
+
 # Ruby performance tweaks (https://gist.github.com/1688857)
 export RUBY_HEAP_MIN_SLOTS=1000000
 export RUBY_HEAP_SLOTS_INCREMENT=1000000
