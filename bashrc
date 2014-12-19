@@ -1,3 +1,5 @@
+export PATH="/usr/local/bin:$PATH"
+
 # Load rvm (if installed)
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
