@@ -8,7 +8,6 @@
 
 [core]
   editor = /usr/bin/vim
-  excludesfile = /opt/boxen/config/git/gitignore
 
 [merge]
   tool = vimdiff
@@ -35,9 +34,6 @@
 
 [hub]
   protocol = https
-
-[credential]
-  helper = /opt/boxen/bin/boxen-git-credential
 
 [pull]
   rebase = true
