@@ -9,8 +9,10 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-fugitive'
 Bundle 'elzr/vim-json'
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Bundle 'janx/vim-rubytest'
+
+Plugin 'bling/vim-airline'
+let g:airline_powerline_fonts = 1
 
 filetype plugin indent on
 
