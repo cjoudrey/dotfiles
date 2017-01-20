@@ -1,5 +1,9 @@
 export PATH="/usr/local/bin:$PATH"
 
+export GOPATH=$HOME/code/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
+
 # Load rvm (if installed)
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
