@@ -1,6 +1,7 @@
 [user]
   name = Christian Joudrey
   email = cmallette@gmail.com
+  signingkey = A4A37924
 
 [color]
   ui = auto
@@ -37,3 +38,7 @@
 
 [pull]
   rebase = true
+[gpg]
+  program = /usr/local/bin/gpg2
+[commit]
+  gpgsign = true
