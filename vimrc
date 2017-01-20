@@ -10,8 +10,16 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-fugitive'
 Bundle 'elzr/vim-json'
 Bundle 'janx/vim-rubytest'
+Bundle 'roman/golden-ratio'
 
+Plugin 'plasticboy/vim-markdown'
+let g:vim_markdown_folding_disabled = 1
+
+Plugin 'pangloss/vim-javascript'
 Plugin 'bling/vim-airline'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'jparise/vim-graphql'
+
 let g:airline_powerline_fonts = 1
 
 filetype plugin indent on
