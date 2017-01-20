@@ -129,6 +129,10 @@ hi Search guifg=NONE guibg=NONE gui=underline ctermfg=NONE ctermbg=NONE cterm=un
 " Clear the search buffer when hitting return
 :nnoremap <CR> :nohlsearch<cr>
 
+" Highlight 121st character
+highlight ColorColumn ctermbg=magenta
+call matchadd('ColorColumn', '\%121v', 100)
+
 " auto complete
 function! SuperTab()
     if (strpart(getline('.'),col('.')-2,1)=~'^\W\?$')
