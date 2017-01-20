@@ -211,3 +211,14 @@ map <unique> <Leader>. <Plug>RubyLastRun
 
 " Ackvim
 noremap <Leader>a :Ack <cword> <c-r>=FindProjectRoot('.git').' --'.&filetype<CR>
+
+augroup Binary
+  au!
+  au BufReadPre  *.nes let &bin=1
+  au BufReadPost *.nes if &bin | %!xxd -g 1
+  au BufReadPost *.nes set ft=xxd | endif
+  au BufWritePre *.nes if &bin | %!xxd -r
+  au BufWritePre *.nes endif
+  au BufWritePost *.nes if &bin | %!xxd -g 1
+  au BufWritePost *.nes set nomod | endif
+augroup END
