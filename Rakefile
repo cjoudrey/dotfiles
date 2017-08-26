@@ -1,5 +1,6 @@
 task :install do
   Rake::Task['dotfiles'].invoke
+  Rake::Task['brew'].invoke
   Rake::Task['vim_plugins'].invoke
 end
 
@@ -18,6 +19,10 @@ task :dotfiles => [:update_submodules] do
     print "Installing #{file}\n"
     File.symlink("#{root}/#{file}", target_file)
   end
+end
+
+task :brew do
+  `brew bundle`
 end
 
 task :update_submodules do
