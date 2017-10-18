@@ -35,6 +35,7 @@ brew "vim", args: ["with-lua", "with-override-system-vi"]
 brew "yarn"
 cask "atom"
 cask "gpgtools"
+brew "gpg2"
 cask "iterm2"
 cask "karabiner-elements"
 cask "openemu"
