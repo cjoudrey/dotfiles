@@ -20,6 +20,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'bling/vim-airline'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'jparise/vim-graphql'
+Plugin 'fatih/vim-go'
 
 let g:airline_powerline_fonts = 1
 
@@ -109,6 +110,8 @@ autocmd FileType go setl tabstop=4 softtabstop=2 shiftwidth=4 noexpandtab
 autocmd BufNewFile,BufRead *.coffee.erb set filetype=coffee
 " Two-space indentation for CoffeeScript files
 autocmd FileType coffee setl shiftwidth=2 expandtab
+
+autocmd FileType go nmap <silent> <Leader>d <Plug>(go-def)
 
 " automatically cd to current buff dir
 au   BufEnter *   execute ":lcd " . expand("%:p:h")
