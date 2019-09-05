@@ -1,3 +1,6 @@
 [submodule "vim/bundle/vundle"]
 	path = vim/bundle/vundle
 	url = https://github.com/gmarik/Vundle.vim.git
+[submodule "kube-ps1"]
+	path = kube-ps1
+	url = https://github.com/jonmosco/kube-ps1.git

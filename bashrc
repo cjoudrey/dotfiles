@@ -27,6 +27,8 @@ if [ -f ~/.git-completion.sh ]; then
     PS1=$PS1'\[\033[32m\]$(__git_ps1 " (%s)")\[\033[00m\]'
 fi
 
+source ~/dotfiles/kube-ps1/kube-ps1.sh
+PS1='[\u@\h \W $(kube_ps1)]'
 # Set prompt
 PS1=$PS1" $ "
 export PS1
