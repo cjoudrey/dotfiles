@@ -52,13 +52,6 @@ alias pp='python -mjson.tool'
 # fix colors in tmux
 alias tmux="TERM=screen-256color-bce tmux"
 
-# Ruby performance tweaks (https://gist.github.com/1688857)
-export RUBY_HEAP_MIN_SLOTS=1000000
-export RUBY_HEAP_SLOTS_INCREMENT=1000000
-export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
-export RUBY_GC_MALLOC_LIMIT=100000000
-export RUBY_HEAP_FREE_MIN=500000
-
 # Colorize grep by default
 export GREP_OPTIONS="--color=auto"
 export GREP_COLOR="1;37;41"
