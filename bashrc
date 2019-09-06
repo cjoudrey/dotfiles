@@ -3,6 +3,7 @@ export PATH="/usr/local/bin:$PATH"
 export GOPATH=$HOME/code/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
+export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin"
 
 # Load rvm (if installed)
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
