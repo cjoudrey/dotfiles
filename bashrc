@@ -1,5 +1,6 @@
 export PATH="/usr/local/bin:$PATH"
 
+export GO111MODULE=on
 export GOPATH=$HOME/code/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
