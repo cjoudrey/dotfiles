@@ -2,6 +2,7 @@ task :install do
   Rake::Task['dotfiles'].invoke
   Rake::Task['brew'].invoke
   Rake::Task['vim_plugins'].invoke
+  Rake::Task['karabiner'].invoke
 end
 
 task :dotfiles => [:update_submodules] do
@@ -34,4 +35,16 @@ end
 task :vim_plugins do
   print "Installing vim plugins\n"
   `vim +PluginInstall +qall`
+end
+
+task :karabiner do
+  home = File.expand_path('~')
+  target = File.join(home, '.config/karabiner/assets/complex_modifications', 'custom-capslock.json')
+
+  if File.exists?(target)
+    print "#{target} exists"
+    next
+  end
+
+  File.symlink(File.join(home, 'dotfiles', 'custom-capslock.json'), target)
 end
