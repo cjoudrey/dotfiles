@@ -207,6 +207,7 @@ set laststatus=2
 let g:Powerline_symbols = 'fancy'
 
 " Rubytest
+let g:rubytest_output = "terminal"
 let g:rubytest_cmd_test = "bundle exec rake test TEST=%:p:h/%p"
 let g:rubytest_cmd_testcase = 'bundle exec rake test TEST=%:p:h/%p TESTOPTS="--name=%c"'
 map <unique> <Leader>L <Plug>RubyTestRun
