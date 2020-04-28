@@ -1,0 +1,75 @@
+#!/bin/sh
+
+set -o errexit
+set -o nounset
+set -o pipefail
+
+color_red='\033[0;31m'
+color_green='\033[0;32m'
+color_reset='\033[0m'
+error_prefix="${color_red}✗${color_reset}"
+success_prefix="${color_green}✔${color_reset}"
+
+editor=${EDITOR:-vim}
+storage_path=${TIL_STORAGE_PATH:-}
+
+if [[ -z "${storage_path}" ]]
+then
+  echo "${error_prefix} TIL_STORAGE_PATH env needs to be set to a folder where TIL entries will be stored."
+  exit 1
+fi
+
+while [ "$#" -gt "0" ]; do
+  case "${1}" in
+  --)
+    shift
+    break
+    ;;
+  *)
+    echo "Usage: ${0} -- TIL entry"
+    echo "(or omit arguments and edit entry using \$EDITOR)"
+    echo
+    echo "${error_prefix} Option ${1} not recognized"
+    exit 1
+    ;;
+  esac
+
+  shift
+done
+
+contents=""
+
+if [ $# -eq 0 ]
+then
+  file=$(mktemp)
+  ${EDITOR} ${file} || (echo "${error_prefix} ${EDITOR} exited with non-zero exit code. Aborting." && exit 1)
+  contents=$(cat ${file})
+else
+  contents="$@"
+fi
+
+entries_path="${TIL_STORAGE_PATH}/entries"
+entry_path="${entries_path}/$(date "+%Y-%m-%d").md"
+
+mkdir -p ${entries_path}
+
+echo "- ${contents}" >> $entry_path
+
+echo "${success_prefix} Wrote entry to ${entry_path}"
+
+after_add_hook_path="${TIL_STORAGE_PATH}/.til/after-add"
+
+if [ -f "${after_add_hook_path}" ]
+then
+  if [ -x "${after_add_hook_path}" ]
+  then
+    (
+      cd $TIL_STORAGE_PATH;
+      ${after_add_hook_path} ${entry_path}
+    ) || ("echo ${error_prefix} after-add hook exited with non-zero exit code." && exit 1)
+
+    echo "${success_prefix} Ran after-add hooks"
+  else
+    echo "${error_prefix} ${after_add_hook_path} is not executable."
+  fi
+fi
