@@ -19,41 +19,19 @@ then
   exit 1
 fi
 
-while [ "$#" -gt "0" ]; do
-  case "${1}" in
-  --)
-    shift
-    break
-    ;;
-  *)
-    echo "Usage: ${0} -- TIL entry"
-    echo "(or omit arguments and edit entry using \$EDITOR)"
-    echo
-    echo "${error_prefix} Option ${1} not recognized"
-    exit 1
-    ;;
-  esac
-
-  shift
-done
-
-contents=""
-
-if [ $# -eq 0 ]
-then
-  file=$(mktemp)
-  ${EDITOR} ${file} || (echo "${error_prefix} ${EDITOR} exited with non-zero exit code. Aborting." && exit 1)
-  contents=$(cat ${file})
-else
-  contents="$@"
-fi
+file=$(mktemp)
+${EDITOR} ${file} || (echo "${error_prefix} ${EDITOR} exited with non-zero exit code. Aborting." && exit 1)
 
 entries_path="${TIL_STORAGE_PATH}/entries"
 entry_path="${entries_path}/$(date "+%Y-%m-%d").md"
 
 mkdir -p ${entries_path}
 
-echo "- ${contents}" >> $entry_path
+echo >> $entry_path
+echo "----------" >> $entry_path
+echo >> $entry_path
+
+cat $file >> $entry_path
 
 echo "${success_prefix} Wrote entry to ${entry_path}"
 
