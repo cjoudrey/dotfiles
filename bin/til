@@ -20,9 +20,14 @@ then
 fi
 
 file=$(mktemp)
-${EDITOR} ${file} || (echo "${error_prefix} ${EDITOR} exited with non-zero exit code. Aborting." && exit 1)
 
-entries_path="${TIL_STORAGE_PATH}/entries"
+# workaroud because MacOS `mktemp` doesn't accept `--suffix`
+mv ${file} ${file}.md
+file=${file}.md
+
+${editor} ${file} || (echo "${error_prefix} ${editor} exited with non-zero exit code. Aborting." && exit 1)
+
+entries_path="${storage_path}/entries"
 entry_path="${entries_path}/$(date "+%Y-%m-%d").md"
 
 mkdir -p ${entries_path}
@@ -35,7 +40,7 @@ cat $file >> $entry_path
 
 echo "${success_prefix} Wrote entry to ${entry_path}"
 
-after_add_hook_path="${TIL_STORAGE_PATH}/.til/after-add"
+after_add_hook_path="${storage_path}/.til/after-add"
 
 if [ -f "${after_add_hook_path}" ]
 then
@@ -44,7 +49,7 @@ then
     echo "${success_prefix} Running after-add hooks"
 
     (
-      cd $TIL_STORAGE_PATH;
+      cd $storage_path;
       ${after_add_hook_path} ${entry_path}
     ) || ("echo ${error_prefix} after-add hook exited with non-zero exit code." && exit 1)
   else
