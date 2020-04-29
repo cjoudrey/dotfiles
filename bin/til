@@ -41,12 +41,12 @@ if [ -f "${after_add_hook_path}" ]
 then
   if [ -x "${after_add_hook_path}" ]
   then
+    echo "${success_prefix} Running after-add hooks"
+
     (
       cd $TIL_STORAGE_PATH;
       ${after_add_hook_path} ${entry_path}
     ) || ("echo ${error_prefix} after-add hook exited with non-zero exit code." && exit 1)
-
-    echo "${success_prefix} Ran after-add hooks"
   else
     echo "${error_prefix} ${after_add_hook_path} is not executable."
   fi
