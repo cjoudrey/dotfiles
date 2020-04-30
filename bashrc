@@ -55,9 +55,7 @@ alias pp='python -mjson.tool'
 # fix colors in tmux
 alias tmux="TERM=screen-256color-bce tmux"
 
-# Colorize grep by default
-export GREP_OPTIONS="--color=auto"
-export GREP_COLOR="1;37;41"
+alias grep="ack"
 
 # Hub
 if hub --version >/dev/null 2>&1; then eval "$(hub alias -s)"; fi
