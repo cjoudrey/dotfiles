@@ -20,6 +20,15 @@ task :dotfiles => [:update_submodules] do
     print "Installing #{file}\n"
     File.symlink("#{root}/#{file}", target_file)
   end
+
+  Dir.mkdir("#{target}/.config") unless File.exists?("#{target}/.config")
+
+  if File.exists?("#{target}/.config/starship.toml")
+    print "Skipping starship.toml\n"
+  else
+    print "Installing starship.toml\n"
+    File.symlink("#{root}/starship.toml", "#{target}/.config/starship.toml")
+  end
 end
 
 task :brew do
