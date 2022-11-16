@@ -19,22 +19,9 @@ export EDITOR="vim"
 # VI movement in Bash
 set -o vi
 
-# Set the base PS1
-PS1="\[\033[1;30m\]\w\[\033[00m\]"
-
-# Source the git bash completion file
 if [ -f ~/.git-completion.sh ]; then
     source ~/.git-completion.sh
-    GIT_PS1_SHOWDIRTYSTATE=true
-    GIT_PS1_SHOWUNTRACKEDFILES=true
-    PS1=$PS1'\[\033[32m\]$(__git_ps1 " (%s)")\[\033[00m\]'
 fi
-
-source ~/dotfiles/kube-ps1/kube-ps1.sh
-PS1='[\u@\h \W $(kube_ps1)]'
-# Set prompt
-PS1=$PS1" $ "
-export PS1
 
 # Aliases
 alias ll='ls -Fls'
@@ -45,6 +32,7 @@ alias gs='git status'
 alias ga='git add'
 alias gp='git push'
 alias be='bundle exec'
+alias k='kubectl'
 
 # sha256sum
 alias sha256sum='shasum -a 256'
@@ -64,3 +52,5 @@ if hub --version >/dev/null 2>&1; then eval "$(hub alias -s)"; fi
 export IGNOREEOF=25
 
 export TIL_STORAGE_PATH="$HOME/til"
+
+eval "$(starship init bash)"
