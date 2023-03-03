@@ -22,6 +22,9 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'jparise/vim-graphql'
 Plugin 'fatih/vim-go'
 
+Plugin 'vim-test/vim-test'
+let test#strategy = "vimterminal"
+
 let g:airline_powerline_fonts = 1
 
 filetype plugin indent on
@@ -105,6 +108,9 @@ autocmd BufNewFile,BufRead Gemfile,Vagrantfile,Guardfile set filetype=ruby
 " Go lang
 autocmd BufNewFile,BufRead *.go set filetype=go
 autocmd FileType go setl tabstop=4 softtabstop=2 shiftwidth=4 noexpandtab
+autocmd FileType go nnoremap <silent> <leader>L :TestNearest<CR>
+autocmd FileType go nnoremap <silent> <leader>l :TestFile<CR>
+autocmd FileType go nnoremap <silent> <leader>. :TestLast<CR>
 
 " properly highlight .coffee.erb files
 autocmd BufNewFile,BufRead *.coffee.erb set filetype=coffee
