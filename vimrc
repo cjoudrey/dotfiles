@@ -21,6 +21,7 @@ Plugin 'bling/vim-airline'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'jparise/vim-graphql'
 Plugin 'fatih/vim-go'
+Plugin 'github/copilot.vim'
 
 Plugin 'vim-test/vim-test'
 let test#strategy = "vimterminal"
@@ -118,6 +119,7 @@ autocmd BufNewFile,BufRead *.coffee.erb set filetype=coffee
 autocmd FileType coffee setl shiftwidth=2 expandtab
 
 autocmd FileType go nmap <silent> <Leader>d <Plug>(go-def)
+autocmd FileType go nmap <Leader>r :GoReferrers<CR>
 
 " automatically cd to current buff dir
 au   BufEnter *   execute ":lcd " . expand("%:p:h")
