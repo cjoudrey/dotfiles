@@ -32,3 +32,7 @@ symlink "${HOME}/dotfiles/config/starship.toml" "${HOME}/.config/starship.toml"
 symlink "${HOME}/dotfiles/gitconfig" "${HOME}/.gitconfig"
 
 command -v brew &>/dev/null && echo "Running brew bundle" && brew bundle
+
+echo "Resetting Rectangle.app settings" && defaults delete com.knollsoft.Rectangle
+mkdir -p ${HOME}/Library/Application\ Support/Rectangle
+symlink "${HOME}/dotfiles/rectangle.json" "${HOME}/Library/Application Support/Rectangle/RectangleConfig.json"
