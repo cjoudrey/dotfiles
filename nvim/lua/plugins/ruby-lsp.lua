@@ -1,12 +1,13 @@
 return {
   {
     "neovim/nvim-lspconfig",
+    dependencies = { "hrsh7th/cmp-nvim-lsp" },
     opts = {
       servers = {
         ruby_lsp = {
-          mason = false,
+          --mason = false,
           capabilities = require("cmp_nvim_lsp").default_capabilities(),
---          cmd = { "shadowenv exec -- ruby-lsp" },
+          --          cmd = { "shadowenv exec ruby-lsp" },
         },
         rubocop = {
           enabled = false,
@@ -18,7 +19,7 @@ return {
 
 --- local ruby_version = vim.fn.executable("ruby") == 1 and vim.fn.system('ruby -e "puts RUBY_VERSION"'):gsub("\n", "")
 ---   or nil
---- 
+---
 --- ---@type LazySpec
 --- return {
 ---   {
