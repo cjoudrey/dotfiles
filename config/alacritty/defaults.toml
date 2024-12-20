@@ -16,5 +16,5 @@ bindings = [
 
 [terminal.shell]
 program = "/bin/bash"
-args = ["--login"]
+args = ["--login", "-c", "cd ~; exec /bin/bash"]
 
