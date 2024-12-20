@@ -27,6 +27,7 @@ symlink "${HOME}/dotfiles/bashrc" "${HOME}/.bashrc"
 [ ! -d ${HOME}/.config ] && echo "Create ${HOME}/.config" && mkdir ${HOME}/.config
 symlink "${HOME}/dotfiles/config/alacritty" "${HOME}/.config/alacritty"
 symlink "${HOME}/dotfiles/config/nvim" "${HOME}/.config/nvim"
+symlink "${HOME}/dotfiles/config/karabiner" "${HOME}/.config/karabiner"
 symlink "${HOME}/dotfiles/config/starship.toml" "${HOME}/.config/starship.toml"
 symlink "${HOME}/dotfiles/gitconfig" "${HOME}/.gitconfig"
 
