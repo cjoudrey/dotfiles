@@ -1,0 +1,33 @@
+#!/bin/bash
+
+symlink() {
+  local source="$1"
+  local target="$2"
+
+  if [ -e "${target}" ]; then
+    if [ ! -L "${target}" ]; then
+      echo "Error: ${target} exists and is not a symlink" >&2
+      return 1
+    fi
+
+    if [ "$(readlink -f ${target})" = "${source}" ]; then
+      return 0
+    else
+      echo "Error: ${target} exists and links elsewhere"
+      return 1
+    fi
+  fi
+
+  echo "Symlink ${target} -> ${source}"
+  ln -s "${source}" "${target}"
+}
+
+symlink "${HOME}/dotfiles/bashrc" "${HOME}/.bashrc"
+
+[ ! -d ${HOME}/.config ] && echo "Create ${HOME}/.config" && mkdir ${HOME}/.config
+symlink "${HOME}/dotfiles/config/alacritty" "${HOME}/.config/alacritty"
+symlink "${HOME}/dotfiles/config/nvim" "${HOME}/.config/nvim"
+symlink "${HOME}/dotfiles/config/starship.toml" "${HOME}/.config/starship.toml"
+symlink "${HOME}/dotfiles/gitconfig" "${HOME}/.gitconfig"
+
+command -v brew &>/dev/null && echo "Running brew bundle" && brew bundle

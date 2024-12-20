@@ -1,14 +1,14 @@
 [user]
   name = Christian Joudrey
   email = cmallette@gmail.com
-  signingkey = A4A37924
+#  signingkey = A4A37924
 
 [color]
   ui = auto
   interactive = auto
 
 [core]
-  editor = /usr/bin/vim
+  editor = nvim
 
 [merge]
   tool = vimdiff
@@ -38,7 +38,9 @@
 
 [pull]
   rebase = true
-[gpg]
-  program = /usr/local/bin/gpg2
-[commit]
-  gpgsign = true
+
+#[gpg]
+#  program = /usr/local/bin/gpg2
+#
+#[commit]
+#  gpgsign = true
