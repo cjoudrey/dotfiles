@@ -7,7 +7,7 @@ This repository tracks my current configurations and scripts that I use to set u
 ## Usage
 
 ```sh
-git clone git@github.com:cjoudrey/dotfiles.git ~
+git clone git@github.com:cjoudrey/dotfiles.git ~/dotfiles
 cd dotfiles
 ./install
 ```
