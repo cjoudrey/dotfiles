@@ -23,6 +23,7 @@
   co = commit
   br = branch
   ch = checkout
+	sync = !git fetch origin main && git rebase origin/main && git push origin +$(git symbolic-ref --short HEAD)
 
 [branch]
   autosetuprebase = always
